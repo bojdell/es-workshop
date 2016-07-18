@@ -3,6 +3,7 @@ Companion code for the [Elasticsearch Intern Workshop](https://workday-search-in
 
 ## Overview
 The workshop is split into 2 parts:
+
 1. Elasticsearch API Basics (~30 mins)
     - We will be using the [Sense Kibana plugin](https://www.elastic.co/guide/en/sense/current/introduction.html) to explore Elasticsearch's APIs. We will [install it](https://www.elastic.co/guide/en/sense/current/installing.html) as part of the workshop and go over some of the commands in `sense_commands.txt`.
 2. Building a Product with Elasticsearch (~80 mins)
