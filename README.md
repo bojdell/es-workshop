@@ -1,6 +1,17 @@
 # es-workshop
 Companion code for the [Elasticsearch Intern Workshop](https://workday-search-intern-workshop.eventbrite.com). Clone this in your terminal by running `git clone git@github.com:bojdell/es-workshop.git`. This will copy all the code to your computer under the directory `es-workshop`.
 
+## Overview
+The workshop is split into 2 parts:
+1. Elasticsearch API Basics (~30 mins)
+    - We will be using the [Sense Kibana plugin](https://www.elastic.co/guide/en/sense/current/introduction.html) to explore Elasticsearch's APIs. We will [install it](https://www.elastic.co/guide/en/sense/current/installing.html) as part of the workshop and go over some of the commands in `sense_commands.txt`.
+2. Building a Product with Elasticsearch (~80 mins)
+    - We will be implementing bits of logic in a twitter search engine.
+        - Setup (~20 mins)
+        - Challenge 1 (~20 mins)
+        - Challenge 2 (~20 mins)
+        - Challenge 3 (~20 mins)
+
 ## Before You Begin
 Please make sure you have set up the following things:
 
@@ -18,7 +29,7 @@ Please make sure you have set up the following things:
 6. Be semi-comfortable navigating your terminal of choice (ideally POSIX)
 
 ## Indexing the Dataset
-The sample dataset for this workshop was obtained from Twitter by retreiving recent tweets from the ["100 Best Tech People On Twitter"](http://www.businessinsider.com/100-best-tech-people-on-twitter-2014-2014-11?op=1) (excluding retweets). These handles are listed in `data/handles.txt` with a few updates for handles that have changed over the years.
+The sample dataset for this workshop was obtained from Twitter by retrieving recent tweets from the ["100 Best Tech People On Twitter"](http://www.businessinsider.com/100-best-tech-people-on-twitter-2014-2014-11?op=1) (excluding retweets). These handles are listed in `data/handles.txt` with a few updates for handles that have changed over the years.
 
 This data is contained in the archive `data/tweets.zip`. Expanding this archive inside `data/` yields a directory `data/tweets/` cointaining JSON files of tweet data for each handle in `data/handles.txt`. This data was fetched using the script `data/fetch_tweets.rb`, which can be re-run to update the data (you will need to obtain your own [Twitter API key](https://apps.twitter.com/) to do this).
 
@@ -27,6 +38,3 @@ To index the dataset into Elasticsearch, first make sure Elasticsearch is runnin
 
 ## Running the Site
 Once you've installed Node.js, navigate to `es-workshop` and run `node server.js`. The server will start listening on port `3000`, and if you navigate to [http://localhost:3000](http://localhost:3000), you can begin interacting with the workshop site.
-
-## Useful Sense Commands
-Sense is a helpful tool that makes executing REST requests against Elasticsearch easy. We will [install it]() as part of the workshop. Sense is a Kibana plugin, so after it's installed and Kibana is restarted, you can navigate to Sense via [http://localhost:5601/app/sense](http://localhost:5601/app/sense). The file `sense_commands.txt` can be pasted into the editor as a starting point of useful commands.
