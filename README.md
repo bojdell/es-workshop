@@ -6,11 +6,11 @@ Please make sure you have set up the following things:
 
 1. Download Elasticsearch 2.3.x and follow installation instructions: https://www.elastic.co/downloads/elasticsearch
     - _IMPORTANT: Be sure to add the following lines to Elasticsearch's config file `elasticsearch.yml` before starting ES:_
-```
-    http.cors.enabled: true
-    http.cors.allow-methods: OPTIONS, HEAD, GET
-    http.cors.allow-origin: /https?:\/\/localhost(:[0-9]+)?/
-```
+    ```yaml
+        http.cors.enabled: true
+        http.cors.allow-methods: OPTIONS, HEAD, GET
+        http.cors.allow-origin: /https?:\/\/localhost(:[0-9]+)?/
+    ```
 2. Download Kibana 4.5.x and follow installation instructions: https://www.elastic.co/downloads/kibana
 3. Install [Node.js](https://nodejs.org/en/download/) (Homebrew users can run `brew install node`. More info here: http://blog.teamtreehouse.com/install-node-js-npm-mac)
 4. Have a lightweight text editor available (we recommend Sublime Text: https://www.sublimetext.com/3, but use whatever you like)
