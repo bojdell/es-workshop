@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ES Workshop Challenge 1: Single-User Filtering</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Public Resources -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,800" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+<!-- es-workshop Resources -->
+<link rel="stylesheet" type="text/css" href="css/app.css">
+<script src="js/basicQuery.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body class="box"><!-- Navbar -->
+<ul class="topnav row header">
+  <li><a class="active" href="/">Home</a></li>
+  <li><a href="/challenge-1.html">1) Single-User</a></li>
+  <li><a href="/challenge-2.html">2) Fuzzy Queries</a></li>
+  <li><a href="/challenge-3.html">3) Top Influencers</a></li>
+  <li class="right"><a href="/about.html">About</a></li>
+</ul><!-- Content -->
+<div id="content" class="row content">
+  <div class="challenge-desc">
+    <h1>Challenge 1: Single-User Filtering</h1>
+    <p class="big-spacing">
+      In <span class="code">public/js/challenge-1.js</span>, edit the function <span class="code">generateEsQuery()</span> to only show tweets from the selected user.
+    </p>
+  </div>
+
+  <div id="search-box">
+    <input type="text" id="query-text" placeholder="Search tweets..." autofocus="autofocus">
+    <select id="selected-user">
+      <option value="nitashatiku">nitashatiku</option>
+      <option value="pmarca">pmarca</option>
+      <option value="msquinn">msquinn</option>
+      <option value="brooke">brooke</option>
+      <option value="johnlegere">johnlegere</option>
+      <option value="karaswisher">karaswisher</option>
+      <option value="alexia">alexia</option>
+      <option value="markgurman">markgurman</option>
+      <option value="tristanwalker">tristanwalker</option>
+      <option value="jack">jack</option>
+      <option value="emilychangtv">emilychangtv</option>
+      <option value="fmanjoo">fmanjoo</option>
+      <option value="benedictevans">benedictevans</option>
+      <option value="jennydeluxe">jennydeluxe</option>
+      <option value="elonmusk">elonmusk</option>
+      <option value="joannastern">joannastern</option>
+      <option value="bhorowitz">bhorowitz</option>
+      <option value="danprimack">danprimack</option>
+      <option value="shiraovide">shiraovide</option>
+      <option value="pkafka">pkafka</option>
+      <option value="dickc">dickc</option>
+      <option value="dinabass">dinabass</option>
+      <option value="tim_cook">tim_cook</option>
+      <option value="evelynrusli">evelynrusli</option>
+      <option value="rabois">rabois</option>
+      <option value="sammywalrusiv">sammywalrusiv</option>
+      <option value="ampressman">ampressman</option>
+      <option value="mikeisaac">mikeisaac</option>
+      <option value="erichippeau">erichippeau</option>
+      <option value="jessicalessin">jessicalessin</option>
+      <option value="dens">dens</option>
+      <option value="ariannahuff">ariannahuff</option>
+      <option value="davetisch">davetisch</option>
+      <option value="cindygallop">cindygallop</option>
+      <option value="marissamayer">marissamayer</option>
+      <option value="delrey">delrey</option>
+      <option value="padmasree">padmasree</option>
+      <option value="joshuatopolsky">joshuatopolsky</option>
+      <option value="selenalarson">selenalarson</option>
+      <option value="om">om</option>
+      <option value="xeni">xeni</option>
+      <option value="reckless">reckless</option>
+      <option value="kashhill">kashhill</option>
+      <option value="hunterwalk">hunterwalk</option>
+      <option value="sarajchipps">sarajchipps</option>
+      <option value="charlesarthur">charlesarthur</option>
+      <option value="noupside">noupside</option>
+      <option value="ruzwana">ruzwana</option>
+      <option value="lorakolodny">lorakolodny</option>
+      <option value="jeffweiner">jeffweiner</option>
+      <option value="cbm">cbm</option>
+      <option value="anildash">anildash</option>
+      <option value="bgurley">bgurley</option>
+      <option value="sarahcuda">sarahcuda</option>
+      <option value="jordancooper">jordancooper</option>
+      <option value="reshmasaujani">reshmasaujani</option>
+      <option value="helengreiner">helengreiner</option>
+      <option value="edbott">edbott</option>
+      <option value="mims">mims</option>
+      <option value="mkbhd">mkbhd</option>
+      <option value="inafried">inafried</option>
+      <option value="samfbiddle">samfbiddle</option>
+      <option value="megangarber">megangarber</option>
+      <option value="davidlee">davidlee</option>
+      <option value="caseynewton">caseynewton</option>
+      <option value="nickbilton">nickbilton</option>
+      <option value="dmac1">dmac1</option>
+      <option value="alexismadrigal">alexismadrigal</option>
+      <option value="fromedome">fromedome</option>
+      <option value="sophiaamoruso">sophiaamoruso</option>
+      <option value="caseyjohnston">caseyjohnston</option>
+      <option value="mat">mat</option>
+      <option value="rupertmurdoch">rupertmurdoch</option>
+      <option value="leighalexander">leighalexander</option>
+      <option value="baratunde">baratunde</option>
+      <option value="tonyromm">tonyromm</option>
+      <option value="cdixon">cdixon</option>
+      <option value="meredithperry">meredithperry</option>
+      <option value="mgsiegler">mgsiegler</option>
+      <option value="qhardy">qhardy</option>
+      <option value="paulg">paulg</option>
+      <option value="gaberivera">gaberivera</option>
+      <option value="tapbot_paul">tapbot_paul</option>
+      <option value="waltmossberg">waltmossberg</option>
+      <option value="rrhoover">rrhoover</option>
+      <option value="caitlindewey">caitlindewey</option>
+      <option value="martinsfp">martinsfp</option>
+      <option value="gigastacey">gigastacey</option>
+      <option value="yayitsrob">yayitsrob</option>
+      <option value="redgirlsays">redgirlsays</option>
+      <option value="fredwilson">fredwilson</option>
+      <option value="maryjofoley">maryjofoley</option>
+      <option value="bfeld">bfeld</option>
+      <option value="llsethj">llsethj</option>
+      <option value="alex">alex</option>
+      <option value="asymco">asymco</option>
+      <option value="katienotopoulos">katienotopoulos</option>
+      <option value="borthwick">borthwick</option>
+      <option value="johndoerr">johndoerr</option>
+      <option value="benthompson">benthompson</option>
+      <option value="jandawson">jandawson</option>
+    </select>
+  </div>
+
+  <table id="search-results">
+  </table>
+</div>
+  </body>
+</html>
