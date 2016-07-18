@@ -25,4 +25,4 @@ This data is contained in the archive `tweets.zip`. Expanding this archive yield
 To index the dataset into Elasticsearch, first make sure Elasticsearch is running (we assume it's using the default port of `9200`). Then, run `./index_tweets.rb`. Once this has completed, the data will be available in ES inside the index `tweets`.
 
 ## Running the Site
-Once you've installed Node.js, navigate to `es-workshop` and run `node server.js`. The server will start listening on port `3000`, and if you navigate to http://localhost:3000, you can begin interacting with the workshop site.
+Once you've installed Node.js, navigate to `es-workshop` and run `node server.js`. The server will start listening on port `3000`, and if you navigate to [http://localhost:3000](http://localhost:3000), you can begin interacting with the workshop site.
