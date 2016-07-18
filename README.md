@@ -3,8 +3,9 @@ Companion code for the [Elasticsearch Intern Workshop](https://workday-search-in
 
 ## Before You Begin
 Please make sure you have set up the following things:
+
 1. Download Elasticsearch 2.3.x and follow installation instructions: https://www.elastic.co/downloads/elasticsearch
-    - *IMPORTANT: Be sure to add the following lines to Elasticsearch's config file `elasticsearch.yml` before starting ES:*
+    - _IMPORTANT: Be sure to add the following lines to Elasticsearch's config file `elasticsearch.yml` before starting ES:_
 ```
     http.cors.enabled: true
     http.cors.allow-methods: OPTIONS, HEAD, GET
