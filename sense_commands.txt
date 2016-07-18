@@ -1,0 +1,53 @@
+# Useful Sense commands
+
+# important metrics 
+GET _cluster/health
+
+# all the indices that are in your cluster
+GET _cat/indices
+
+# add ?v to print headers
+GET _cat/indices?v
+
+# add ?format=json for a json response
+GET _cat/indices?format=json
+
+# use this to view available _cat APIs
+GET _cat
+
+# run a query against an index (defaults to match_all)
+GET {index}/_search
+
+GET .kibana/_search
+
+# each index has a set of mappings that define the schema of the data
+GET .kibana/_mappings
+
+# each index also has settings that contain metadata about the index
+GET .kibana/_settings
+
+# if you GET the index itself, the mappings and settings are included, along with some other data
+GET .kibana
+
+# create an index
+PUT test
+
+# add documents
+PUT test/person/1
+{
+  "name": "Sid",
+  "age": 23,
+  "hair_color": "Brown"
+}
+PUT test/person/2
+{
+  "name": "Lizzy",
+  "age": 19,
+  "hair_color": "Blonde"
+}
+PUT test/person/3
+{
+  "name": "Danny",
+  "age": 56,
+  "hair_color": "Gray"
+}

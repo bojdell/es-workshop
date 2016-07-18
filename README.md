@@ -26,3 +26,6 @@ To index the dataset into Elasticsearch, first make sure Elasticsearch is runnin
 
 ## Running the Site
 Once you've installed Node.js, navigate to `es-workshop` and run `node server.js`. The server will start listening on port `3000`, and if you navigate to [http://localhost:3000](http://localhost:3000), you can begin interacting with the workshop site.
+
+## Useful Sense Commands
+Sense is a helpful tool that makes executing REST requests against Elasticsearch easy. We will [install it]() as part of the workshop. Sense is a Kibana plugin, so after it's installed and Kibana is restarted, you can navigate to Sense via [http://localhost:5601/app/sense](http://localhost:5601/app/sense). The file `sense_commands.txt` can be pasted into the editor as a starting point of useful commands.
