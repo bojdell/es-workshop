@@ -4,22 +4,23 @@
   <title>ES Workshop Search Engine</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,800" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 </head>
 <body class="box">
   <!-- Navbar -->
   <ul class="topnav row header">
-    <li><a class="active" href="#home">Home</a></li>
-    <li><a href="#news">News</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li class="right"><a href="#about">About</a></li>
+    <li><a class="active" href="#">Home</a></li>
+    <li><a href="#">1) Single-User</a></li>
+    <li><a href="#">2) Highlighted</a></li>
+    <li><a href="#">3) Top Influencers</a></li>
+    <li class="right"><a href="#">About</a></li>
   </ul>
 
   <!-- Content -->
   <div id="content" class="row content">
     <div id="search-box">
-      <input type="text" id="query-text" placeholder="Search tweets...">
+      <input type="text" id="query-text" placeholder="Search tweets..." autofocus="autofocus">
       <input type="button" id="submit-query" value="go">
     </div>
 
@@ -28,9 +29,9 @@
   </div>
 
   <!-- Footer -->
-  <div id="footer" class="row footer">
+  <!-- <div id="footer" class="row footer">
     es-workshop 2016
-  </div>
+  </div> -->
 
   <script>
   $("#submit-query").click(submitQuery);
@@ -55,8 +56,7 @@
         hit = hits[key]['_source']
         console.log(hit);
 
-        resultRow = "<tr><td>" + renderHit(hit) + "</td></tr>"
-
+        resultRow = renderHit(hit)
         $("#search-results").append(resultRow);
       }
     });
@@ -64,10 +64,37 @@
 
   function renderHit(hit) {
     result = "";
-    for(key in hit) {
-      value = hit[key];
-      result += (key + ": " + value + ", ");
-    }
+
+    profilePicUrl = hit['user']['profile_image_url']
+    userName = hit['user']['name']
+    handle = hit['user']['screen_name']
+    date = new Date(hit['created_at'])
+    tweetText = hit['text']
+
+    var options = {
+      weekday: "short", year: "numeric", month: "short",
+      day: "numeric", hour: "2-digit", minute: "2-digit"
+    };
+
+    dateString = date.toLocaleTimeString("en-us", options);
+
+    result = `
+      <tr class='tweet'>
+        <td class='profilePic'>
+          <img src='${profilePicUrl}'>
+        </td>
+        <td class='userName'>
+          ${userName}<br>
+          <a href='https://twitter.com/${handle}' target='_blank'>@${handle}</a>
+        </td>
+        <td class='tweetText'>
+          ${tweetText}
+        </td>
+        <td>
+          ${dateString}
+        </td>
+      </tr>
+    `
     return result.slice(0, -2);
   }
   </script>

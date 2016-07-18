@@ -14,9 +14,19 @@ html, body {
   margin: 0em 8em;
   padding: 5em 5em;
   background-color: white;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   display: flex;
   flex-flow: column;
+}
+
+.userName {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.tweetText {
+  padding-right: 1.5em;
 }
 
 .box .row.header {
@@ -33,11 +43,12 @@ html, body {
 
 #search-results {
   padding-top: 1em;
-  width:100%;
+  width: 100%;
 }
 
 th, td {
   border-bottom: 1px solid #ddd;
+  padding: 1em 0em;
 }
 
 #footer {
