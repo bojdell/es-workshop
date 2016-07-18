@@ -52,7 +52,7 @@ function renderHit(hit) {
 
   dateString = date.toLocaleTimeString("en-us", dateOptions);
 
-  result = `
+  innerHtml = `
     <tr class='tweet'>
       <td>
         <img src='${profilePicUrl}' class='profilePic'>
@@ -69,5 +69,5 @@ function renderHit(hit) {
       </td>
     </tr>
   `
-  return result.slice(0, -2);
+  return innerHtml;
 }
