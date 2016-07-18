@@ -3,21 +3,69 @@ html, body {
   height: 100%;
   font-family: 'Open Sans', sans-serif;
   background-color: #eff0f1;
+  font-size: 14pt;
+  color: #333;
+}
+
+.challenge-desc {
+  text-align: center;
+  padding-top: 1em;
+  margin: 0 3em;
+  margin-bottom: -1em;
 }
 
 #search-box {
   margin: 0 auto;
-  font-size: 32pt;
+  padding-top: 3em;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 0.5em;
+  border-bottom: 3px solid #333;
+  font-weight: 300;
 }
 
+::-webkit-input-placeholder {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-weight: lighter;
+}
+::-moz-placeholder { /* older Firefox*/
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-weight: lighter;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-weight: lighter;
+} 
+::-ms-input-placeholder {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-weight: lighter;
+}
+
+#query-text {
+  font-size: 32pt;
+  border: 0em;
+  text-align: center;
+}
+#query-text:focus { outline: none; }
+
 #content {
-  margin: 0em 8em;
-  padding: 5em 5em;
+  margin: 0% 10%;
+  padding: 0% 5% 5% 5%;
   background-color: white;
   height: auto;
   min-height: 100%;
+  font-size: 16pt;
   display: flex;
   flex-flow: column;
+}
+
+.profilePic {
+  border-radius: 0.2em;
+  padding-top: 0.1em;
 }
 
 .userName {
@@ -41,6 +89,10 @@ html, body {
   flex: 0 1 40px;
 }
 
+.big-spacing {
+  line-height: 200%;
+}
+
 #search-results {
   padding-top: 1em;
   width: 100%;
@@ -56,6 +108,14 @@ th, td {
   text-align: center;
   padding: 2em 0em;
   color: white;
+}
+
+.code {
+  font-family: "Courier New", Courier monospace;
+  background-color: #eff0f1;
+  padding: 0.18em;
+  padding-left: 0.4em;
+  border-radius: 0.2em;
 }
 
 ul.topnav {
@@ -81,6 +141,7 @@ ul.topnav li a {
 ul.topnav li a:hover:not(.active) {background-color: #111;}
 
 ul.topnav li a.active {background-color: #4CAF50;}
+ul.topnav li a.active:hover {background-color: #5fb762;}
 
 ul.topnav li.right {float: right;}
 
