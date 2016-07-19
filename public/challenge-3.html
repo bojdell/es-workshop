@@ -19,17 +19,18 @@
   <li><a href="/challenge-2.html">2) Single-User</a></li>
   <li><a href="/challenge-3.html">3) Top Influencers</a></li>
   <li class="right"><a href="/about.html">About</a></li>
-</ul><!-- Content -->
+</ul>
+<!-- Content -->
 <div id="content" class="row content">
   <div class="challenge-desc">
     <h1>Challenge 3: Top Influencers</h1>
     <p class="big-spacing">
-      In <span class="code">public/js/challenge-3.js</span>, edit the function <span class="code">generateEsQuery()</span> to return a list of Twitter accounts that have earned the most likes.
+      In <span class="code">public/js/challenge-3.js</span>, edit the function <span class="code">generateEsQuery()</span> to return a list of tweets that have earned the most favorites, sorted in descending order of favorite count.
     </p>
   </div>
 
-  <div id="search-box">
-    <input type="text" id="query-text" placeholder="Search tweets..." autofocus="autofocus">
+  <div id="select-box">
+    <button id="submit-button" autofocus="autofocus" onclick="submitQuery()">Run Query</button>
   </div>
 
   <table id="search-results">

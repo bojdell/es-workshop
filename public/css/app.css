@@ -58,6 +58,22 @@ html, body {
   padding-bottom: 0.5em;
 }
 
+#submit-button {
+  margin-top: 0.5em;
+  border: none;
+  color: white;
+  background-color: #4CAF50;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22pt;
+  font-weight: 300;
+  padding: 0.4em 0.6em;
+  border-radius: 0.3em;
+}
+
+#submit-button:hover  { background-color: #5fb762; }
+#submit-button:active { background-color: #4CAF50; }
+#submit-button:focus  { outline: none; }
+
 #content {
   margin: 0% 10%;
   padding: 0% 5% 5% 5%;
@@ -146,8 +162,9 @@ ul.topnav li a {
 
 ul.topnav li a:hover:not(.active) {background-color: #111;}
 
-ul.topnav li a.active {background-color: #4CAF50;}
-ul.topnav li a.active:hover {background-color: #5fb762;}
+ul.topnav li a.active        { background-color: #4CAF50; }
+ul.topnav li a.active:hover  { background-color: #5fb762; }
+ul.topnav li a.active:active { background-color: #4CAF50; }
 
 ul.topnav li.right {float: right;}
 
