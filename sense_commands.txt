@@ -1,6 +1,6 @@
 # Useful Sense commands
 
-# important metrics 
+# important cluster metrics
 GET _cluster/health
 
 # all the indices that are in your cluster
@@ -51,3 +51,68 @@ PUT test/person/3
   "age": 56,
   "hair_color": "Gray"
 }
+PUT test/dog/1
+{
+  "name": "Frisco",
+  "age": 3,
+  "hair_color": "Brown",
+  "breed": "Jack Russell Terrier"
+}
+
+# let's look at the mappings ES has detected for us
+GET test/_mappings
+
+# retrieve a particular document
+GET test/person/2
+
+# search on your index
+GET test/_search
+
+# this is equivalent to the following:
+GET test/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+# you can easily scope a search to a particular type
+GET test/person/_search
+GET test/dog/_search
+
+# you can use an abbreviated query syntax with ?q=<query_string>
+GET test/_search?q=Sid
+
+# this is equivalent to the following:
+GET test/_search
+{
+  "query": {
+    "query_string": {
+      "query": "Sid"
+    }
+  }
+}
+
+# query_string supports boolean queries
+GET test/_search
+{
+  "query": {
+    "query_string": {
+      "query": "name:Sid OR name:Lizzy"
+    }
+  }
+}
+
+# one of many types of queries: the range query
+GET test/_search
+{
+  "query": {
+    "range": {
+      "age": {
+        "gt": 50
+      }
+    }
+  }
+}
+
+# read more at https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html
