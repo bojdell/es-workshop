@@ -132,6 +132,10 @@ th, td {
   color: white;
 }
 
+#contact-me {
+  list-style-type: none;
+}
+
 .code {
   font-family: "Courier New", Courier monospace;
   background-color: #eff0f1;
