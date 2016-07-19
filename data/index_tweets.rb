@@ -22,7 +22,7 @@ end
 def index_tweets(tweets)
   output = tweets.flat_map do |tweet|
     [
-      bulk_index_request(tweet['id']),
+      bulk_index_request(tweet['id_str']),
       tweet
     ].map { |json| JSON.generate(json) }
   end.join("\n")
