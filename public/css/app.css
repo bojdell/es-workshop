@@ -52,6 +52,12 @@ html, body {
 }
 #query-text:focus { outline: none; }
 
+#select-box {
+  margin: 0 auto;
+  margin-top: 1em;
+  padding-bottom: 0.5em;
+}
+
 #content {
   margin: 0% 10%;
   padding: 0% 5% 5% 5%;
