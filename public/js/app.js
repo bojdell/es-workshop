@@ -6,6 +6,10 @@ $(document).ready( function() {
       $(this).trigger("enterKey");
     }
   });
+
+  if($("#selected-user").length) {
+    fetchUsers();
+  }
 });
 
 function submitQuery() {
@@ -70,4 +74,33 @@ function renderHit(hit) {
     </tr>
   `
   return innerHtml;
+}
+
+// populates the #selected-user drop-down with all usernames in ES
+function fetchUsers() {
+  query = {
+    "aggs" : {
+      "bucket_by_user" : {
+        "terms" : {
+          "field" : "user.screen_name",
+          "size": 0
+        }
+      }
+    },
+    "size": 0
+  }
+
+  queryData = JSON.stringify(query)
+
+  $.post("http://localhost:9200/tweets/_search", queryData, function(data, status) {
+    console.log(data);
+
+    users = data['aggregations']['bucket_by_user']['buckets'].map( function(user) {
+      return user['key'];
+    });
+
+    users.forEach( function(user) {
+      $("#selected-user").append(`<option value="${user}">${user}</option>`);
+    });
+  });
 }
