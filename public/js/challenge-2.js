@@ -1,7 +1,7 @@
 /**
 *	Write your solution to Challenge 2 in this file
 */
-function generateEsQuery(queryString) {
+function generateEsQuery(queryString, selectedUser) {
   return {
     "query": {
       "query_string" : {

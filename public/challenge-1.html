@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ES Workshop Challenge 1: Single-User Filtering</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES Workshop Challenge 1: Fuzzy Queries</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Public Resources -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,800" rel="stylesheet">
@@ -15,23 +15,21 @@
   <body class="box"><!-- Navbar -->
 <ul class="topnav row header">
   <li><a class="active" href="/">Home</a></li>
-  <li><a href="/challenge-1.html">1) Single-User</a></li>
-  <li><a href="/challenge-2.html">2) Fuzzy Queries</a></li>
+  <li><a href="/challenge-1.html">1) Fuzzy Queries</a></li>
+  <li><a href="/challenge-2.html">2) Single-User</a></li>
   <li><a href="/challenge-3.html">3) Top Influencers</a></li>
   <li class="right"><a href="/about.html">About</a></li>
 </ul><!-- Content -->
 <div id="content" class="row content">
   <div class="challenge-desc">
-    <h1>Challenge 1: Single-User Filtering</h1>
+    <h1>Challenge 1: The Fuzzy Query</h1>
     <p class="big-spacing">
-      In <span class="code">public/js/challenge-1.js</span>, edit the function <span class="code">generateEsQuery()</span> to only show tweets from the selected user.
+      In <span class="code">public/js/challenge-1.js</span>, edit the function <span class="code">generateEsQuery()</span> to create a fuzzy query.
     </p>
   </div>
 
   <div id="search-box">
     <input type="text" id="query-text" placeholder="Search tweets..." autofocus="autofocus">
-    <select id="selected-user">
-    </select>
   </div>
 
   <table id="search-results">
