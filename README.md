@@ -24,6 +24,7 @@ Please make sure you have set up the following things:
         http.cors.allow-origin: /https?:\/\/localhost(:[0-9]+)?/
     ```
 2. Download Kibana 4.5.x and follow installation instructions: https://www.elastic.co/downloads/kibana
+    - Also install the [Sense Plugin](https://www.elastic.co/guide/en/sense/current/introduction.html) for Kibana
 3. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (`brew install ruby` for Homebrew users)
 4. Install [Node.js](https://nodejs.org/en/download/) (`brew install node`. More info here: http://blog.teamtreehouse.com/install-node-js-npm-mac)
 5. Install [Express](https://expressjs.com/), a Node.js framework (`npm install express`)
