@@ -1,3 +1,4 @@
+// run some basic setup on page load
 $(document).ready( function() {
   $("#query-text").bind("enterKey", submitQuery);
 
@@ -12,6 +13,7 @@ $(document).ready( function() {
   }
 });
 
+// submits a query to ES based on data from the web page (if needed)
 function submitQuery() {
   if(typeof(generateEsQuery) != "function") {
     console.error("generateEsQuery() not implemented for this page. Not executing query.");
@@ -42,6 +44,7 @@ function submitQuery() {
   });
 }
 
+// generates HTML for a single row in the search results
 function renderHit(hit) {
   profilePicUrl = hit['user.profile_image_url'] || ""
   userName      = hit['user.name']              || hit['user']['name']
