@@ -24,10 +24,11 @@ Please make sure you have set up the following things:
         http.cors.allow-origin: /https?:\/\/localhost(:[0-9]+)?/
     ```
 2. Download Kibana 4.5.x and follow installation instructions: https://www.elastic.co/downloads/kibana
-3. [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/) (`brew install ruby` for Homebrew users)
-4. [Install Node.js](https://nodejs.org/en/download/) (`brew install node`. More info here: http://blog.teamtreehouse.com/install-node-js-npm-mac)
-5. Have a lightweight text editor available (we recommend Sublime Text: https://www.sublimetext.com/3, but use whatever you like)
-6. Be semi-comfortable navigating your terminal of choice (ideally POSIX)
+3. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (`brew install ruby` for Homebrew users)
+4. Install [Node.js](https://nodejs.org/en/download/) (`brew install node`. More info here: http://blog.teamtreehouse.com/install-node-js-npm-mac)
+5. Install [Express](https://expressjs.com/), a Node.js framework (`npm install express`)
+6. Have a lightweight text editor available (we recommend Sublime Text: https://www.sublimetext.com/3, but use whatever you like)
+7. Be semi-comfortable navigating your terminal of choice (ideally POSIX)
 
 ## Indexing the Dataset
 The sample dataset for this workshop was obtained from Twitter by retrieving recent tweets from the ["100 Best Tech People On Twitter"](http://www.businessinsider.com/100-best-tech-people-on-twitter-2014-2014-11?op=1) (excluding retweets). These handles are listed in `data/handles.txt` with a few updates for handles that have changed over the years.
