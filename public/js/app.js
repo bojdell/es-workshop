@@ -46,7 +46,7 @@ function submitQuery() {
 
 // generates HTML for a single row in the search results
 function renderHit(hit) {
-  profilePicUrl = hit['user.profile_image_url'] || ""
+  profilePicUrl = hit['user.profile_image_url'] || ((window.location.pathname == '/') ? "" : hit['user']['profile_image_url'])
   userName      = hit['user.name']              || hit['user']['name']
   handle        = hit['user.screen_name']       || hit['user']['screen_name']
   date          = new Date(hit['created_at'])
