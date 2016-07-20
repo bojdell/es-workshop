@@ -2,7 +2,7 @@
 Companion code for the [Elasticsearch Intern Workshop](https://workday-search-intern-workshop.eventbrite.com). Clone this in your terminal by running `git clone git@github.com:bojdell/es-workshop.git`. This will copy all the code to your computer under the directory `es-workshop`.
 
 ## Overview
-The hands-on portion of the workshop is split into the following components:
+The workshop is split into the following components:
 
 1. Installation / Setup (~25 mins)
 2. Elasticsearch API Basics (~25 mins)
@@ -12,8 +12,8 @@ The hands-on portion of the workshop is split into the following components:
     - Challenge 2 (~20 mins)
     - Challenge 3 (~20 mins)
 
-## 1. Installation / Setup (~25 mins)
-Please make sure you have set up the following things:
+## 1) Installation / Setup (~25 mins)
+Please set up the following things before proceeding:
 
 1. Download Elasticsearch 2.3.x and follow installation instructions: https://www.elastic.co/downloads/elasticsearch
     - _IMPORTANT: Be sure to add the following lines to Elasticsearch's config file `elasticsearch.yml` and restart ES:_
@@ -30,14 +30,14 @@ Please make sure you have set up the following things:
 6. Have a lightweight text editor available (we recommend Sublime Text: https://www.sublimetext.com/3, but use whatever you like)
 7. Be semi-comfortable navigating your terminal of choice (ideally POSIX)
 
-## 2. Elasticsearch API Basics (~25 mins)
+## 2) Elasticsearch API Basics (~25 mins)
 Open the file `sense_commands.txt`. Navigate to Sense at [http://localhost:5601/app/sense](http://localhost:5601/app/sense). Paste the contents of `sense_commands.txt` into Sense.
 
 Note the keyboard shortcuts in the help menu, in particular: `Ctrl/Cmd + Enter = Submit request`.
 
 Read through the comments and execute the commands one at a time.
 
-## 3. Building a Product with Elasticsearch (~60 mins)
+## 3) Building a Product with Elasticsearch (~60 mins)
 Useful tools during this section are Sense (for debugging queries / inspecting ES data), and the Chrome Dev Console (to debug Javascript errors). You can open Dev Console via `Cmd/Ctrl + J`.
 
 ### Indexing the Dataset
@@ -45,7 +45,7 @@ The base dataset for this workshop was obtained from Twitter by retrieving recen
 
 The tweet data is contained in the archive `data/tweets.zip`. Expanding this archive inside `data/` yields a directory `tweets/` cointaining JSON files of tweet data for each handle in `data/handles.txt`. This data was fetched using the script `data/fetch_tweets.rb`, which can be re-run to update the data (you will need to obtain your own [Twitter API key](https://apps.twitter.com/) to do this).
 
-### Indexing TL;DR:
+#### Indexing TL;DR:
 To index the dataset into Elasticsearch, first make sure Elasticsearch is running (we assume it's using the default port of `9200`). Then:
 
 - `cd data/`
