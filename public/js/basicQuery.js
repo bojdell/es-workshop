@@ -5,11 +5,12 @@ function generateEsQuery(queryString) {
         "query" : queryString
       }
     },
-    "fields": [
+    "_source": [
       "user.name",
       "user.screen_name",
       "created_at",
-      "text"
+      "text",
+      "entities*"
     ]
   }
 }
