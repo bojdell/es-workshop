@@ -92,7 +92,7 @@ html, body {
 
 .userName {
   padding-left: 1em;
-  padding-right: 1em;
+  padding-right: 2em;
 }
 
 .tweetText {
@@ -101,6 +101,30 @@ html, body {
 
 .tweetText a {
   display: inline;
+}
+
+.tweetStats {
+  padding-right: 1.1em;
+  font-size: 14pt;
+}
+
+.tweetStats .fa {
+  padding-right: 0.5em;
+  display: inline;
+}
+
+.numFavs {
+  color: #dc5353;
+  padding-bottom: 0.5em;
+}
+
+.numRetweets {
+  color: #efce1d;
+}
+
+.tweetDate {
+  font-size: 13pt;
+  min-width: 7em;
 }
 
 .box .row.header {

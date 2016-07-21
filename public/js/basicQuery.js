@@ -13,6 +13,8 @@ function generateEsQuery(queryString) {
       "user.screen_name",
       "created_at",
       "text",
+      "favorite_count",
+      "retweet_count",
       "entities*"
     ]
   }

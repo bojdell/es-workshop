@@ -52,6 +52,8 @@ function renderHit(hit) {
   date          = new Date(hit['created_at'])
   tweetText     = hit['text']
   entities      = hit['entities']
+  numFavorites  = hit['favorite_count']
+  numRetweets   = hit['retweet_count']
 
   var dateOptions = {
     weekday: "short", year: "numeric", month: "short",
@@ -72,7 +74,11 @@ function renderHit(hit) {
       <td class='tweetText'>
         ${renderTweetText(tweetText, entities)}
       </td>
-      <td>
+      <td class='tweetStats'>
+        <div class='numFavs'><i class="fa fa-heart" aria-hidden="true"></i>${numFavorites}</div>
+        <div class='numRetweets'><i class="fa fa-retweet" aria-hidden="true"></i>${numRetweets}</div>
+      </td>
+      <td class='tweetDate'>
         ${dateString}
       </td>
     </tr>
