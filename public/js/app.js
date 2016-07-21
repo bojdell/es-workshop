@@ -31,21 +31,22 @@ function submitQuery() {
 
   $.post("http://localhost:9200/tweets/_search", esQuery, function(data, status) {
     hits = data['hits']['hits']
-    console.log(hits)
     $("#search-results").empty();
+    console.log("Search restults:");
 
     for(key in hits) {
-      hit = hits[key]['fields'] || hits[key]['_source']
+      hit = hits[key]['_source']
+      id = hits[key]['_id']
       console.log(hit);
 
-      resultRow = renderHit(hit)
+      resultRow = renderHit(hit, id)
       $("#search-results").append(resultRow);
     }
   });
 }
 
 // generates HTML for a single row in the search results
-function renderHit(hit) {
+function renderHit(hit, id) {
   profilePicUrl = hit['user']['profile_image_url'] || "" // drop the profile pic for the warmup exercise
   userName      = hit['user']['name']
   handle        = hit['user']['screen_name']
@@ -72,7 +73,7 @@ function renderHit(hit) {
         <a href='https://twitter.com/${handle}' target='_blank'>@${handle}</a>
       </td>
       <td class='tweetText'>
-        ${renderTweetText(tweetText, entities)}
+        ${renderTweetText(tweetText, entities)} ${renderTweetLink(id)}
       </td>
       <td class='tweetStats'>
         <div class='numFavs'><i class="fa fa-heart" aria-hidden="true"></i>${numFavorites}</div>
@@ -84,6 +85,10 @@ function renderHit(hit) {
     </tr>
   `
   return innerHtml;
+}
+
+function renderTweetLink(id) {
+  return `<a href="https://twitter.com/statuses/${id}"><i class="fa fa-external-link" aria-hidden="true"></i></a>`
 }
 
 // enriches the tweet text by inserting html anchors for all entities in the tweet

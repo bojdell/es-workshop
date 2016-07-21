@@ -7,6 +7,12 @@ html, body {
   color: #333;
 }
 
+a {
+  color: #5fbf63;
+}
+a:hover  { color: #6ed873; }
+a:active { color: #5fbf63; }
+
 .challenge-desc {
   text-align: center;
   padding-top: 1em;
@@ -93,6 +99,7 @@ html, body {
 .userName {
   padding-left: 1em;
   padding-right: 2em;
+  font-weight: bold;
 }
 
 .tweetText {
@@ -101,6 +108,11 @@ html, body {
 
 .tweetText a {
   display: inline;
+}
+
+.tweetText .fa {
+  vertical-align: middle;
+  padding-left: 0.2em;
 }
 
 .tweetStats {
