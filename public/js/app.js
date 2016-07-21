@@ -70,7 +70,7 @@ function renderHit(hit) {
         <a href='https://twitter.com/${handle}' target='_blank'>@${handle}</a>
       </td>
       <td class='tweetText'>
-        ${tweetText}
+        ${renderTweetText(tweetText, entities)}
       </td>
       <td>
         ${dateString}
@@ -78,6 +78,55 @@ function renderHit(hit) {
     </tr>
   `
   return innerHtml;
+}
+
+// enriches the tweet text by inserting html anchors for all entities in the tweet
+function renderTweetText(text, entities) {
+  mappedEntities = mapEntities(entities);
+  sortedEntities = mappedEntities.sort( function(e1, e2) {
+    return e2[1] - e1[1]; // need to reverse sort by index for the link insert to work properly
+  });
+
+  innerHtml = sortedEntities.reduce( function(tempText, urlData) {
+    return insertUrl.apply(null, [tempText].concat(urlData));
+  }, text);
+
+  return innerHtml;
+}
+
+// maps entities to urls & indices
+function mapEntities(entities) {
+  // hashtags
+  hashtags = entities['hashtags'].map( function(entity) {
+    tag = entity['text']
+    url = `https://twitter.com/hashtag/${tag}`
+
+    return [url].concat(entity['indices'])
+  });
+
+  // user mentions
+  user_mentions = entities['user_mentions'].map( function(entity) {
+    handle = entity['screen_name']
+    url = `https://twitter.com/${handle}`
+
+    return [url].concat(entity['indices'])
+  });
+
+  // urls
+  urls = entities['urls'].map( function(entity) {
+    url = entity['url']
+
+    return [url].concat(entity['indices'])
+  });
+
+  flattenedEntities = [hashtags].concat(user_mentions, urls);
+
+  return flattenedEntities.filter(function(arr){ return arr.length > 0 });
+}
+
+// inserts an html anchor into a string
+function insertUrl(string, url, start, end) {
+  return string.slice(0, start) + `<a href="${url}">` + string.slice(start, end) + "</a>" + string.slice(end, string.length);
 }
 
 // populates the #selected-user drop-down with all usernames in ES

@@ -99,6 +99,10 @@ html, body {
   padding-right: 1.5em;
 }
 
+.tweetText a {
+  display: inline;
+}
+
 .box .row.header {
   flex: 0 1 auto;
 }
