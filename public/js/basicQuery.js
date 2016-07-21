@@ -1,3 +1,6 @@
+/**
+*   Write your solution to the warmup in this file
+*/
 function generateEsQuery(queryString) {
   return {
     "query": {
