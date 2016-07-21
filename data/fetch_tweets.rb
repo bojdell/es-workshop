@@ -2,9 +2,11 @@
 
 ##
 # This script fetches tweet data for all twitter handles listed in handles.txt
-# See comments in the code for more info on the Twitter APIs used.
+# You will need a Twitter API key to run this, which should then be base64 encoded
+# (as specified here: https://dev.twitter.com/oauth/application-only) and placed in your keychain
+# with 'es-workshop-twitter-creds-base64' in the 'Where' field.
 #
-# Note: requires `jq` to run: http://brewformulas.org/jq
+# This script also uses `jq`: http://brewformulas.org/jq
 ##
 
 require 'json'
@@ -12,12 +14,12 @@ require 'json'
 handles = File.read('handles.txt').split("\n").map(&:strip).map(&:downcase)
 # handles = ['<handle>'] # use this to re-fetch a single handle
 
+@bearer_token_creds_base64 = `security find-generic-password -s 'es-workshop-twitter-creds-base64' -w 2>/dev/null`.chomp
+
 # see https://dev.twitter.com/oauth/application-only for more info on how this works
 def get_token()
-  bearer_token_creds_base64 = '' # add your base64-encoded credentials here
-
   res_json = ` curl -Ss --fail -XPOST \
-      -H "Authorization: Basic #{bearer_token_creds_base64}" \
+      -H "Authorization: Basic #{@bearer_token_creds_base64}" \
       -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" \
       -d 'grant_type=client_credentials' \
       'https://api.twitter.com/oauth2/token'
