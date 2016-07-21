@@ -131,7 +131,7 @@ a:active { color: #5fbf63; }
 }
 
 .numRetweets {
-  color: #efce1d;
+  color: #ffdd20;
 }
 
 .tweetDate {
@@ -181,6 +181,7 @@ th, td {
   background-color: #eff0f1;
   padding: 0.18em;
   padding-left: 0.4em;
+  padding-right: 0.35em;
   border-radius: 0.2em;
 }
 
