@@ -88,7 +88,7 @@ function renderHit(hit, id) {
 }
 
 function renderTweetLink(id) {
-  return `<a href="https://twitter.com/statuses/${id}"><i class="fa fa-external-link" aria-hidden="true"></i></a>`
+  return `<a href="https://twitter.com/statuses/${id}" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a>`
 }
 
 // enriches the tweet text by inserting html anchors for all entities in the tweet
@@ -137,7 +137,7 @@ function mapEntities(entities) {
 
 // inserts an html anchor into a string
 function insertUrl(string, url, start, end) {
-  return string.slice(0, start) + `<a href="${url}">` + string.slice(start, end) + "</a>" + string.slice(end, string.length);
+  return string.slice(0, start) + `<a href="${url}" target="_blank">` + string.slice(start, end) + "</a>" + string.slice(end, string.length);
 }
 
 // populates the #selected-user drop-down with all usernames in ES
