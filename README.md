@@ -1,10 +1,3 @@
-# Useful Links
-Sign-in / Chat: https://docs.google.com/spreadsheets/d/1Inwqw5xeJM2OqSaclg90wxoq-8PZv6yxOm7PnmJA6vc/edit?usp=sharing
-
-Twitter Handle Suggestions: https://docs.google.com/spreadsheets/d/12qazCJs2qmo2anRqnDGg9JmGsek5Xs3U725HxaFzHJo
-
-If you installed ES w/ homebrew, YML file is here: `libexec/config/elasticsearch.yml`
-
 # es-workshop
 Companion code for the [Elasticsearch Intern Workshop](https://workday-search-intern-workshop.eventbrite.com). Clone this in your terminal by running `git clone https://github.com/bojdell/es-workshop.git`. This will copy all the code to your computer under the directory `es-workshop`.
 
@@ -29,6 +22,7 @@ Please set up the following things before proceeding:
         http.cors.allow-methods: OPTIONS, HEAD, GET
         http.cors.allow-origin: /https?:\/\/localhost(:[0-9]+)?/
     ```
+    - If you installed ES w/ homebrew, your YML file is here: `libexec/config/elasticsearch.yml`
 2. Download Kibana 4.5.x and follow installation instructions: https://www.elastic.co/downloads/kibana
     - Also install the [Kibana Sense Plugin](https://www.elastic.co/guide/en/sense/current/installing.html) `./bin/kibana plugin --install elastic/sense` and restart Kibana
     - If this is working properly, you can access Sense here: [http://localhost:5601/app/sense](http://localhost:5601/app/sense)
