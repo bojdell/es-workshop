@@ -1,5 +1,10 @@
+Sign-in / Chat: https://docs.google.com/spreadsheets/d/1Inwqw5xeJM2OqSaclg90wxoq-8PZv6yxOm7PnmJA6vc/edit?usp=sharing
+Twitter Handle Suggestions: https://docs.google.com/spreadsheets/d/12qazCJs2qmo2anRqnDGg9JmGsek5Xs3U725HxaFzHJo
+
+If you installed ES w/ homebrew, YML file is here: `libexec/config/elasticsearch.yml`
+
 # es-workshop
-Companion code for the [Elasticsearch Intern Workshop](https://workday-search-intern-workshop.eventbrite.com). Clone this in your terminal by running `git clone git@github.com:bojdell/es-workshop.git`. This will copy all the code to your computer under the directory `es-workshop`.
+Companion code for the [Elasticsearch Intern Workshop](https://workday-search-intern-workshop.eventbrite.com). Clone this in your terminal by running `git clone https://github.com/bojdell/es-workshop.git`. This will copy all the code to your computer under the directory `es-workshop`.
 
 ## Overview
 The workshop is split into the following components:
