@@ -12,7 +12,6 @@ require 'uri'
 
 INDEX_NAME = 'tweets'
 DATA_TYPE = 'tweet'
-BULK_DATA_TMP_FILE = '/tmp/bulk_data'
 
 tweet_data = Dir['tweets/*']
 # tweet_data = ['tweets/<handle>.json'] # use this to re-index a single handle
