@@ -57,7 +57,7 @@ The tweet data is contained in the archive `data/tweets.zip`. Expanding this arc
 To index the dataset into Elasticsearch, first make sure Elasticsearch is running (we assume it's using the default port of `9200`). Then:
 
 - `cd data/`
-- `unzip tweets.zip -d tweets/`
+- `unzip tweets.zip`
 - `./index_tweets.rb`
 
 Once this has completed, the data will be available in ES inside the index `tweets`.
