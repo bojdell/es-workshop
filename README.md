@@ -31,6 +31,7 @@ Please set up the following things before proceeding:
     ```
 2. Download Kibana 4.5.x and follow installation instructions: https://www.elastic.co/downloads/kibana
     - Also install the [Kibana Sense Plugin](https://www.elastic.co/guide/en/sense/current/installing.html) `./bin/kibana plugin --install elastic/sense` and restart Kibana
+    - If this is working properly, you can access Sense here: http://localhost:5601/app/sense
 3. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (`brew install ruby` for Homebrew users)
 4. Install [Node.js](https://nodejs.org/en/download/) (`brew install node`)
 5. Install [Express](https://expressjs.com/), a Node.js framework (`npm install -g express`)
