@@ -7,6 +7,8 @@
 ##
 
 require 'json'
+require 'net/http'
+require 'uri'
 
 INDEX_NAME = 'tweets'
 DATA_TYPE = 'tweet'
@@ -20,23 +22,22 @@ def bulk_index_request(id)
 end
 
 def index_tweets(tweets)
-  output = tweets.flat_map do |tweet|
-    [
-      bulk_index_request(tweet['id_str']),
-      tweet
-    ].map { |json| JSON.generate(json) }
+  uri = URI.parse('http://localhost:9200/_bulk')
+  request = Net::HTTP::Post.new(uri)
+  request['Content-Type'] = 'application/json'
+  request.body = tweets.flat_map do |tweet|
+    [bulk_index_request(tweet['id_str']), tweet].map {|x| JSON.generate x}
   end.join("\n")
 
-  File.write(BULK_DATA_TMP_FILE, output)
-
-  `curl -Ss --fail -XPOST "http://localhost:9200/_bulk" --data-binary "@#{BULK_DATA_TMP_FILE}"`
-
-  File.delete(BULK_DATA_TMP_FILE)
+  Net::HTTP.start(uri.host, uri.port) do |http|
+    response = http.request(request)
+    return Net::HTTPSuccess === response
+  end
 end
 
 tweet_data.each_with_index do |file, i|
   tweets = JSON.parse(File.read(file))
-  index_tweets(tweets)
-  puts "#{'%3.3s' % i}: Indexed data from #{file}"
+  s = index_tweets(tweets)
+  puts '%3i) %s: %s' % [i, (s ? 'SUCCESS' : 'FAILURE'), file]
   sleep 0.1
 end
