@@ -32,7 +32,7 @@ function submitQuery() {
   $.post("http://localhost:9200/tweets/_search", esQuery, function(data, status) {
     hits = data['hits']['hits']
     $("#search-results").empty();
-    console.log("Search restults:");
+    console.log("Search results:");
 
     for(key in hits) {
       hit = hits[key]['_source']
@@ -130,7 +130,7 @@ function mapEntities(entities) {
     return [url].concat(entity['indices'])
   });
 
-  flattenedEntities = [hashtags].concat(user_mentions, urls);
+  flattenedEntities = hashtags.concat(user_mentions, urls);
 
   return flattenedEntities.filter(function(arr){ return arr.length > 0 });
 }
