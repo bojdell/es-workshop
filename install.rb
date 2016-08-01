@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 ##
-# This script downloads and installs the following software into the directory `lib/`:
+# This script downloads and configures the following software in the directory `lib`:
 #   - Elasticsearch 2.3.4
 #   - Kibana 4.5.3 (w/ Sense plugin)
 ##
@@ -203,6 +203,6 @@ def install_kibana(install_path)
   puts "== Successfully installed Kibana into '#{install_path}' ==".green
 end
 
-Dir.mkdir(INSTALL_DIR)      unless Dir.exists?(INSTALL_DIR)
+Dir.mkdir(INSTALL_DIR) unless Dir.exists?(INSTALL_DIR)
 install_es(INSTALL_DIR)
 install_kibana(INSTALL_DIR)
