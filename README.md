@@ -15,7 +15,7 @@ The workshop is split into the following components:
 ## 1) Installation / Setup (~25 mins)
 Please set up the following things before proceeding:
 
-1. Install Git (and Homebrew if you're a mac user)
+1. Install [Git](https://git-scm.com/downloads) if you don't have it (and [Homebrew](http://brew.sh/) if you're on a mac)
 2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (`brew install ruby` for Homebrew users)
 3. Install [Node.js](https://nodejs.org/en/download/) (`brew install node`)
 4. Install [Express](https://expressjs.com/), a Node.js framework (`npm install -g express`)
