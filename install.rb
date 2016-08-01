@@ -142,9 +142,9 @@ def install_es(install_path)
     return
   end
 
-  out_file = File.join(install_path, File.basename(ES_INSTALL_URI.path))
-  download(ES_INSTALL_URI, out_file)
-  unpack(out_file, install_path)
+  archive_file = File.join(install_path, File.basename(ES_INSTALL_URI.path))
+  download(ES_INSTALL_URI, archive_file)
+  unpack(archive_file, install_path)
 
   # prepend custom config settings to elasticsearch.yml
   es_config_path = File.join(es_dir, 'config/elasticsearch.yml')
@@ -165,12 +165,6 @@ def install_es(install_path)
 end
 
 def install_kibana(install_path)
-  kibana_dir_glob = File.join(INSTALL_DIR, 'kibana-4.5.3*')
-  if Dir.glob(kibana_dir_glob).any?
-    puts "== Detected directory matching #{kibana_dir_glob} - assuming Kibana is installed there. ==".green
-    return
-  end
-
   kibana_uri = case @os_type
   when :mac
     KIBANA_INSTALL_URI_MAC
@@ -180,12 +174,31 @@ def install_kibana(install_path)
     KIBANA_INSTALL_URI_LINUX
   end
 
-  out_file = File.join(install_path, File.basename(kibana_uri.path))
+  base_name = File.basename(kibana_uri.path, '.*')
+  if File.extname(base_name) == '.tar'
+    base_name = File.basename(base_name, '.*')
+  end
 
-  download(kibana_uri, out_file)
-  unpack(out_file, install_path)
+  kibana_dir = File.join(install_path, base_name)
+  if Dir.exists?(kibana_dir)
+    puts "== Detected directory #{kibana_dir} - assuming Kibana is installed there. ==".green
+    return
+  end
 
-  # TODO: install Sense kibana plugin
+  archive_file = File.join(install_path, File.basename(kibana_uri.path))
+
+  download(kibana_uri, archive_file)
+  unpack(archive_file, install_path)
+
+  # Install Sense Kibana plugin
+  install_cmd = './bin/kibana plugin --silent --install elastic/sense'
+  @in_progress = true
+  spinner_thread = spinner('Installing', install_cmd)
+
+  Dir.chdir(kibana_dir) { system(install_cmd) }
+
+  @in_progress = false
+  spinner_thread.join
 
   puts "== Successfully installed Kibana into '#{install_path}' ==".green
 end
