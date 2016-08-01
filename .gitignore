@@ -3,3 +3,4 @@ elasticsearch-2.3.*
 kibana-4.5.*
 data/tweets
 solutions
+lib
