@@ -14,11 +14,17 @@ require 'zip'
 require 'colorize'
 require 'rubygems/package'
 
-INSTALL_DIR = 'lib/'
+INSTALL_DIR = 'lib'
 ES_INSTALL_URI = URI.parse('https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/zip/elasticsearch/2.3.4/elasticsearch-2.3.4.zip')
 KIBANA_INSTALL_URI_MAC     = URI.parse('https://download.elastic.co/kibana/kibana/kibana-4.5.3-darwin-x64.tar.gz')
 KIBANA_INSTALL_URI_WINDOWS = URI.parse('https://download.elastic.co/kibana/kibana/kibana-4.5.3-windows.zip')
 KIBANA_INSTALL_URI_LINUX   = URI.parse('https://download.elastic.co/kibana/kibana/kibana-4.5.3-linux-x64.tar.gz')
+
+ES_OPTS = '
+http.cors.enabled: true
+http.cors.allow-methods: OPTIONS, HEAD, GET
+http.cors.allow-origin: /https?:\/\/localhost(:[0-9]+)?/
+'
 
 host_os = RbConfig::CONFIG['host_os']
 @os_type = case host_os
@@ -29,29 +35,31 @@ host_os = RbConfig::CONFIG['host_os']
   when /linux/
     :linux
   else
-    raise "Unknown os type: #{host_os.inspect}"
+    raise "Unknown OS type: #{host_os.inspect}"
 end
 
 @in_progress = false
 
-def spinner(msg)
+def spinner(action, path)
   Thread.new do
     while @in_progress do
-      '/-\\|'.each_char do |c|
-        print "#{msg}: #{c}\r"
-        $stdout.flush
+      '/-\\|'.each_char do |spin_state|
+        log_action(action, path, spin_state, true)
         sleep 0.1
       end
     end
-    print "#{msg}: #{'COMPLETED'.green}\r"
-    $stdout.flush
-    puts
+    log_action(action, path, 'COMPLETED'.green)
   end
+end
+
+def log_action(action, path, status, overwrite = false)
+  print ('%-13s %-20s: %s' % [action, path.cyan, status]) + (overwrite ? "\r" : "\n")
+  $stdout.flush
 end
 
 def unpack(archive_path, out_dir)
   @in_progress = true
-  spinner_thread = spinner('%-11s %s' % ['Unpacking', archive_path.cyan])
+  spinner_thread = spinner('Unpacking', archive_path)
 
   case File.extname(archive_path)
   when '.zip'
@@ -64,7 +72,7 @@ def unpack(archive_path, out_dir)
   spinner_thread.join
 
   FileUtils.rm(archive_path)
-  puts '%-11s %s: %s' % ['Removing', archive_path.cyan, 'COMPLETED'.green]
+  log_action('Removing', archive_path, 'COMPLETED'.green)
 end
 
 def unzip(archive_path, out_dir)
@@ -77,13 +85,12 @@ def unzip(archive_path, out_dir)
   end
 end
 
-def download(uri)
+def download(uri, out_file)
   request = Net::HTTP::Get.new(uri)
-  out_file = File.join(INSTALL_DIR, File.basename(uri.path))
 
   Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
     @in_progress = true
-    spinner_thread = spinner('%-11s %s' % ['Downloading', out_file.cyan])
+    spinner_thread = spinner('Downloading', out_file)
 
     http.request(request) do |response|
       open(out_file, 'w') do |io|
@@ -96,8 +103,6 @@ def download(uri)
     @in_progress = false
     spinner_thread.join
   end
-
-  out_file
 end
 
 # based heavily on http://dracoater.blogspot.com/2013/10/extracting-files-from-targz-with-ruby.html
@@ -131,15 +136,41 @@ def untar(archive_path, out_dir)
 end
 
 def install_es(install_path)
-  out_file = download(ES_INSTALL_URI)
+  es_dir = File.join(install_path, File.basename(ES_INSTALL_URI.path, '.*'))
+  if Dir.exists?(es_dir)
+    puts "== Detected directory #{es_dir} - assuming Elasticsearch is installed there. ==".green
+    return
+  end
+
+  out_file = File.join(install_path, File.basename(ES_INSTALL_URI.path))
+  download(ES_INSTALL_URI, out_file)
   unpack(out_file, install_path)
 
-  # TODO: edit elasticsearch.yml
+  # prepend custom config settings to elasticsearch.yml
+  es_config_path = File.join(es_dir, 'config/elasticsearch.yml')
+  config_copy = es_config_path + '.copy'
 
-  puts "== Successfully installed Elasticsearch into #{install_path} ==".green
+  File.open(config_copy, 'w') do |output|
+    output.puts ES_OPTS
+    File.foreach(es_config_path) do |line|
+      output.puts line
+    end
+  end
+
+  FileUtils.rm(es_config_path)
+  File.rename(config_copy, es_config_path)
+  log_action('Configuring', es_config_path, 'COMPLETED')
+
+  puts "== Successfully installed Elasticsearch into '#{install_path}' ==".green
 end
 
 def install_kibana(install_path)
+  kibana_dir_glob = File.join(INSTALL_DIR, 'kibana-4.5.3*')
+  if Dir.glob(kibana_dir_glob).any?
+    puts "== Detected directory matching #{kibana_dir_glob} - assuming Kibana is installed there. ==".green
+    return
+  end
+
   kibana_uri = case @os_type
   when :mac
     KIBANA_INSTALL_URI_MAC
@@ -149,14 +180,16 @@ def install_kibana(install_path)
     KIBANA_INSTALL_URI_LINUX
   end
 
-  out_file = download(kibana_uri)
+  out_file = File.join(install_path, File.basename(kibana_uri.path))
+
+  download(kibana_uri, out_file)
   unpack(out_file, install_path)
 
   # TODO: install Sense kibana plugin
 
-  puts "== Successfully installed Kibana into #{install_path} ==".green
+  puts "== Successfully installed Kibana into '#{install_path}' ==".green
 end
 
-Dir.mkdir(INSTALL_DIR) unless Dir.exists?(INSTALL_DIR)
+Dir.mkdir(INSTALL_DIR)      unless Dir.exists?(INSTALL_DIR)
 install_es(INSTALL_DIR)
 install_kibana(INSTALL_DIR)
