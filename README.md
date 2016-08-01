@@ -15,22 +15,19 @@ The workshop is split into the following components:
 ## 1) Installation / Setup (~25 mins)
 Please set up the following things before proceeding:
 
-1. Download Elasticsearch 2.3.x and follow installation instructions: https://www.elastic.co/downloads/elasticsearch
-    - _IMPORTANT: Be sure to add the following lines to Elasticsearch's config file `elasticsearch.yml` and restart ES:_
-    ```yaml
-        http.cors.enabled: true
-        http.cors.allow-methods: OPTIONS, HEAD, GET
-        http.cors.allow-origin: /https?:\/\/localhost(:[0-9]+)?/
-    ```
-    - If you installed ES w/ homebrew, your YML file is here: `libexec/config/elasticsearch.yml`
-2. Download Kibana 4.5.x and follow installation instructions: https://www.elastic.co/downloads/kibana
-    - Also install the [Kibana Sense Plugin](https://www.elastic.co/guide/en/sense/current/installing.html) `./bin/kibana plugin --install elastic/sense` and restart Kibana
-    - If this is working properly, you can access Sense here: [http://localhost:5601/app/sense](http://localhost:5601/app/sense)
-3. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (`brew install ruby` for Homebrew users)
-4. Install [Node.js](https://nodejs.org/en/download/) (`brew install node`)
-5. Install [Express](https://expressjs.com/), a Node.js framework (`npm install -g express`)
-6. Have a lightweight text editor available (we recommend Sublime Text: https://www.sublimetext.com/3, but use whatever you like)
-7. Be semi-comfortable navigating your terminal of choice (ideally POSIX)
+1. Install Git (and Homebrew if you're a mac user)
+2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (`brew install ruby` for Homebrew users)
+3. Install [Node.js](https://nodejs.org/en/download/) (`brew install node`)
+4. Install [Express](https://expressjs.com/), a Node.js framework (`npm install -g express`)
+5. Run `bundle install` from within the `es-workshop` directory
+6. Run `./install.rb` or `ruby install.rb` to install Elasticsearch and Kibana (this will create the `lib` dirctory)
+7. Start Elasticsearch via `cd lib/elasticsearch-2.3.4` and `./bin/elasticsearch`
+8. Start Kibana via `cd lib/kibana-4.5.3-<your_arch_type>` and `./bin/kibana`
+9. Check that everything is working by navigating to Sense at [http://localhost:5601/app/sense](http://localhost:5601/app/sense)
+
+#### Other Tips
+- Have a lightweight text editor available (we recommend Sublime Text: https://www.sublimetext.com/3, but use whatever you like)
+- Be semi-comfortable navigating your terminal of choice (ideally POSIX)
 
 ## 2) Elasticsearch API Basics (~25 mins)
 Open the file `sense_commands.txt`. Navigate to Sense at [http://localhost:5601/app/sense](http://localhost:5601/app/sense). Paste the contents of `sense_commands.txt` into Sense.
