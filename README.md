@@ -20,8 +20,8 @@ Please set up the following things before proceeding:
 3. Install [Express](https://expressjs.com/), a Node.js framework (`npm install -g express`)
 4. `cd es-workshop` and run `bundle install`
 5. Run `./install.rb` to install Elasticsearch and Kibana (this will create the `lib` dirctory)
-6. Start Elasticsearch via `cd lib/elasticsearch-2.3.4` and `./bin/elasticsearch`
-7. Start Kibana via `cd lib/kibana-4.5.3-<your_arch_type>` and `./bin/kibana`
+6. In a new tab, start Elasticsearch: `cd lib/elasticsearch-2.3.4 && ./bin/elasticsearch`
+7. In a new tab, start Kibana: `cd lib/kibana-4.5.3-<your_arch_type> && ./bin/kibana`
 8. Check that everything is working by navigating to Sense at [http://localhost:5601/app/sense](http://localhost:5601/app/sense)
 
 #### Other Tips
