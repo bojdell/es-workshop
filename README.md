@@ -36,7 +36,11 @@ Note the keyboard shortcuts in the help menu, in particular: `Ctrl/Cmd + Enter =
 Read through the comments and execute the commands one at a time.
 
 ## 3) Building a Product with Elasticsearch (~60 mins)
-Useful tools during this section are Sense (for debugging queries / inspecting ES data), and the Chrome Dev Console (to debug Javascript errors). You can open Dev Console via `Cmd/Ctrl + J`.
+
+For this part, you will be working to create a search engine on real Twitter data. You will be solving challenges by implementing Elasticsearch queries. The search engine looks like this:
+![screenshot](/public/img/screenshot.png?raw=true)
+
+Note: during this section, Sense is useful for debugging queries / inspecting ES data and your browser's Dev Console will help with debugging any Javascript errors.
 
 ### Indexing the Dataset
 The base dataset for this workshop was obtained from Twitter by retrieving recent tweets from the ["100 Best Tech People On Twitter"](http://www.businessinsider.com/100-best-tech-people-on-twitter-2014-2014-11?op=1) (excluding retweets). These handles are listed in `data/handles.txt` with a few updates for handles that have changed over the years.
