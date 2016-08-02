@@ -38,6 +38,7 @@ Read through the comments and execute the commands one at a time.
 ## 3) Building a Product with Elasticsearch (~60 mins)
 
 For this part, you will be working to create a search engine on real Twitter data. You will be solving challenges by implementing Elasticsearch queries. The search engine looks like this:
+
 ![screenshot](/public/img/screenshot.png?raw=true)
 
 Note: during this section, Sense is useful for debugging queries / inspecting ES data and your browser's Dev Console will help with debugging any Javascript errors.
