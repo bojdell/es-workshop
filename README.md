@@ -16,13 +16,11 @@ The workshop is split into the following components:
 Please set up the following things before proceeding:
 
 1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (`brew install ruby` for [Homebrew](http://brew.sh/) users)
-2. Install [Node.js](https://nodejs.org/en/download/) (`brew install node`)
-3. Install [Express](https://expressjs.com/), a Node.js framework (`npm install -g express`)
-4. `cd es-workshop` and run `bundle install`
-5. Run `./install.rb` to install Elasticsearch and Kibana (this will create the `lib` dirctory)
-6. In a new tab, start Elasticsearch: `cd lib/elasticsearch-2.3.4 && ./bin/elasticsearch`
-7. In a new tab, start Kibana: `cd lib/kibana-4.5.3-<your_arch_type> && ./bin/kibana`
-8. Check that everything is working by navigating to Sense at [http://localhost:5601/app/sense](http://localhost:5601/app/sense)
+2. `cd es-workshop` and run `bundle install`
+3. Run `./install.rb` to install Elasticsearch and Kibana (this will create the `lib` dirctory)
+4. In a new tab, start Elasticsearch: `cd lib/elasticsearch-2.3.4 && ./bin/elasticsearch`
+5. In a new tab, start Kibana: `cd lib/kibana-4.5.3-<your_arch_type> && ./bin/kibana`
+6. Check that everything is working by navigating to Sense at [http://localhost:5601/app/sense](http://localhost:5601/app/sense)
 
 #### Other Tips
 - Have a lightweight text editor available (we recommend Sublime Text: https://www.sublimetext.com/3, but use whatever you like)
@@ -58,7 +56,7 @@ To index the dataset into Elasticsearch, first make sure Elasticsearch is runnin
 Once this has completed, the data will be available in ES inside the index `tweets`.
 
 ### Run the Web Server
-To run our demo search engine, `cd` into `es-workshop` and run `node server.js`. The server will start listening on port `3000`, and if you navigate to [http://localhost:3000](http://localhost:3000), you can begin interacting with the app.
+To run our demo search engine, `cd` into `es-workshop` and run `ruby server.rb`. The server will start listening on port `3000`, and if you navigate to [http://localhost:3000](http://localhost:3000), you can begin interacting with the app.
 
 ### Warmup
 Edit the file `public/js/basicQuery.js` to also retrieve the field for a user's profile pic (hint: copy the query into Sense and play around with it. You will need to provide a value for `queryString`. Try removing the field filters to see what data is available on each tweet.)
