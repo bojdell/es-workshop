@@ -115,6 +115,13 @@ function mapEntities(entities) {
     return [url].concat(entity['indices'])
   });
 
+  // media
+  media = (entities['media'] || []).map( function(entity) {
+    url = entity['url']
+    // TODO: actually render media
+    return [url].concat(entity['indices'])
+  });
+
   // user mentions
   user_mentions = entities['user_mentions'].map( function(entity) {
     handle = entity['screen_name']
@@ -130,7 +137,7 @@ function mapEntities(entities) {
     return [url].concat(entity['indices'])
   });
 
-  flattenedEntities = hashtags.concat(user_mentions, urls);
+  flattenedEntities = hashtags.concat(media, user_mentions, urls);
 
   return flattenedEntities.filter(function(arr){ return arr.length > 0 });
 }
