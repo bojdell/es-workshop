@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#! /usr/bin/env ruby
 
 ##
 # This script fetches tweet data for all twitter handles listed in handles.txt

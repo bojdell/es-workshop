@@ -17,9 +17,9 @@ Please set up the following things before proceeding:
 
 1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (`brew install ruby` for [Homebrew](http://brew.sh/) users)
 2. `cd es-workshop` and run `bundle install`
-3. Run `./install.rb` to install Elasticsearch and Kibana (this will create the `lib` dirctory)
-4. In a new tab, start Elasticsearch: `cd lib/elasticsearch-2.3.4 && ./bin/elasticsearch`
-5. In a new tab, start Kibana: `cd lib/kibana-4.5.3-<your_arch_type> && ./bin/kibana`
+3. Run `ruby install.rb` to install Elasticsearch and Kibana (this will create the `lib` dirctory)
+4. In a new tab, start Elasticsearch: `cd lib/elasticsearch-2.3.4 && ./bin/elasticsearch` (substitute `./bin/elasticsearch.bat` if you're on Windows)
+5. In a new tab, start Kibana: `cd lib/kibana-4.5.3-<your_arch_type> && ./bin/kibana` (substitute `./bin/kibana.bat` if you're on Windows)
 6. Check that everything is working by navigating to Sense at [http://localhost:5601/app/sense](http://localhost:5601/app/sense)
 
 #### Other Tips
@@ -51,7 +51,7 @@ To index the dataset into Elasticsearch, first make sure Elasticsearch is runnin
 
 - `cd data/`
 - `unzip tweets.zip`
-- `./index_tweets.rb`
+- `ruby index_tweets.rb`
 
 Once this has completed, the data will be available in ES inside the index `tweets`.
 

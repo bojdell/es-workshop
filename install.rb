@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#! /usr/bin/env ruby
 
 ##
 # This script downloads and configures the following software in the directory `lib`:

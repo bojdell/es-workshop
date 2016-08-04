@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#! /usr/bin/env ruby
 
 ##
 # This script indexes JSON data retrieved via ./fetch_tweets.rb into Elasticsearch.
