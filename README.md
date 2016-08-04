@@ -39,7 +39,7 @@ For this part, you will be working to create a search engine on real Twitter dat
 
 ![screenshot](/public/img/screenshot.png?raw=true)
 
-Note: during this section, Sense is useful for debugging queries / inspecting ES data and your browser's Dev Console will help with debugging any Javascript errors.
+Note: during this section, Sense is useful for debugging queries / inspecting ES data and your browser's Dev Console will help with debugging any Javascript errors. You will want to keep the [Elasticsearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) close by.
 
 ### Indexing the Dataset
 The base dataset for this workshop was obtained from Twitter by retrieving recent tweets from the ["100 Best Tech People On Twitter"](http://www.businessinsider.com/100-best-tech-people-on-twitter-2014-2014-11?op=1) (excluding retweets). These handles are listed in `data/handles.txt` with a few updates for handles that have changed over the years.
