@@ -69,3 +69,6 @@ The app will pick up your changes after you save the file and refresh the page y
 
 ### Challenges 1-3
 Follow the instrutions on each page to solve the challenge. Again remember that you can use Sense / Chrome Dev Console to debug things. One participant will share his/her solution to each challenge.
+
+### Feedback
+You can provide feedback on the workshop here: [http://goo.gl/forms/dI2uK0HGPmbCAXh12](http://goo.gl/forms/dI2uK0HGPmbCAXh12). Please help us make it better for future sessions!
