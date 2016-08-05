@@ -23,9 +23,10 @@ Please set up the following things before proceeding:
 2. Run `gem install bundler`
 3. `cd es-workshop` and run `bundle install`
 4. Run `ruby install.rb` to install Elasticsearch and Kibana (this will create the `lib` dirctory)
-5. In a new tab, start Elasticsearch: `cd lib/elasticsearch-2.3.4 && ./bin/elasticsearch` (use `./bin/elasticsearch.bat` if you're on Windows)
-6. In a new tab, start Kibana: `cd lib/kibana-4.5.3-<your_arch_type> && ./bin/kibana` (use `./bin/kibana.bat` if you're on Windows)
-7. Check that everything is working by navigating to Sense at [http://localhost:5601/app/sense](http://localhost:5601/app/sense)
+5. Run `./bin/kibana plugin --install elastic/sense` from `lib/kibana-4.5.3-<your_arch_type>`
+6. In a new tab, start Elasticsearch: `cd lib/elasticsearch-2.3.4 && ./bin/elasticsearch` (use `./bin/elasticsearch.bat` if you're on Windows)
+7. In a new tab, start Kibana: `cd lib/kibana-4.5.3-<your_arch_type> && ./bin/kibana` (use `./bin/kibana.bat` if you're on Windows)
+8. Check that everything is working by navigating to Sense at [http://localhost:5601/app/sense](http://localhost:5601/app/sense)
 
 #### Other Tips
 - Have a lightweight text editor available (we recommend Sublime Text: https://www.sublimetext.com/3, but use whatever you like)
