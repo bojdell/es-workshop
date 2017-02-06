@@ -2,8 +2,8 @@
 
 ##
 # This script downloads and configures the following software in the directory `lib`:
-#   - Elasticsearch 2.3.4
-#   - Kibana 4.5.3 (w/ Sense plugin)
+#   - Elasticsearch 5.2.0
+#   - Kibana 5.2.0
 ##
 
 require 'json'
@@ -15,10 +15,10 @@ require 'colorize'
 require 'rubygems/package'
 
 INSTALL_DIR = 'lib'
-ES_INSTALL_URI = URI.parse('https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/zip/elasticsearch/2.3.4/elasticsearch-2.3.4.zip')
-KIBANA_INSTALL_URI_MAC     = URI.parse('https://download.elastic.co/kibana/kibana/kibana-4.5.3-darwin-x64.tar.gz')
-KIBANA_INSTALL_URI_WINDOWS = URI.parse('https://download.elastic.co/kibana/kibana/kibana-4.5.3-windows.zip')
-KIBANA_INSTALL_URI_LINUX   = URI.parse('https://download.elastic.co/kibana/kibana/kibana-4.5.3-linux-x64.tar.gz')
+ES_INSTALL_URI = URI.parse('https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.zip')
+KIBANA_INSTALL_URI_MAC     = URI.parse('https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-darwin-x86_64.tar.gz')
+KIBANA_INSTALL_URI_WINDOWS = URI.parse('https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-windows-x86.zip')
+KIBANA_INSTALL_URI_LINUX   = URI.parse('https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz')
 
 ES_OPTS = '
 http.cors.enabled: true
@@ -189,16 +189,6 @@ def install_kibana(install_path)
 
   download(kibana_uri, archive_file)
   unpack(archive_file, install_path)
-
-  # Install Sense Kibana plugin
-  install_cmd = './bin/kibana plugin --silent --install elastic/sense'
-  @in_progress = true
-  spinner_thread = spinner('Installing', install_cmd)
-
-  Dir.chdir(kibana_dir) { system(install_cmd) }
-
-  @in_progress = false
-  spinner_thread.join
 
   puts "== Successfully installed Kibana into '#{install_path}' ==".green
 end
