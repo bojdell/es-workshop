@@ -153,8 +153,8 @@ function fetchUsers() {
     "aggs" : {
       "bucket_by_user" : {
         "terms" : {
-          "field" : "user.screen_name",
-          "size": 0
+          "field" : "user.screen_name.keyword",
+          "size": 10000
         }
       }
     },
