@@ -4,3 +4,4 @@ kibana-4.5.*
 data/tweets
 solutions
 lib
+.bundle
