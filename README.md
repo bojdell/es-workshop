@@ -1,5 +1,5 @@
 # es-workshop
-Companion code for the [Elasticsearch Workshop](https://ut-austin-es-workshop.eventbrite.com). Clone this in your terminal by running `git clone https://github.com/bojdell/es-workshop.git`. This will copy all the code to your computer under the directory `es-workshop`. If you don't have [Git](https://git-scm.com/downloads), you will need to install it.
+Clone this in your terminal by running `git clone https://github.com/bojdell/es-workshop.git`. This will copy all the code to your computer under the directory `es-workshop`. If you don't have [Git](https://git-scm.com/downloads), you will need to install it.
 
 ## Overview
 The workshop is split into the following components:
