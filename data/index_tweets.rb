@@ -35,8 +35,12 @@ def index_tweets(tweets)
 end
 
 tweet_data.each_with_index do |file, i|
-  tweets = JSON.parse(File.read(file))
-  s = index_tweets(tweets)
-  puts '%3i) %s: %s' % [i, (s ? 'SUCCESS' : 'FAILURE'), file]
-  sleep 0.1
+  begin
+    tweets = JSON.parse(File.read(file))
+    s = index_tweets(tweets)
+    puts '%3i) %s: %s' % [i, (s ? 'SUCCESS' : 'FAILURE'), file]
+    sleep 0.1
+  rescue => e
+    puts "Error indexing tweets for #{file}: #{e}"
+  end
 end
