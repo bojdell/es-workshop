@@ -19,8 +19,8 @@ Please set up the following things before proceeding:
 2. Run `gem install bundler`
 3. Navigate to the `es-workshop` directory and run `bundle install`
 4. Run `ruby install.rb` to install Elasticsearch and Kibana (this will create the `lib` dirctory)
-5. In a new terminal tab, start Elasticsearch: `./lib/elasticsearch-5.2.0*/bin/elasticsearch` (use `elasticsearch.bat` if you're on Windows)
-6. In a new terminal tab, start Kibana: `./lib/kibana-5.2.0*/bin/kibana` (use `kibana.bat` if you're on Windows)
+5. In a new terminal tab, start Elasticsearch: `./lib/elasticsearch-*/bin/elasticsearch` (use `elasticsearch.bat` if you're on Windows)
+6. In a new terminal tab, start Kibana: `./lib/kibana-*/bin/kibana` (use `kibana.bat` if you're on Windows)
 7. Check that everything is working by navigating to the Kibana Dev Tools Console at [http://localhost:5601/app/kibana#/dev_tools/console](http://localhost:5601/app/kibana#/dev_tools/console)
 
 #### Other Tips
