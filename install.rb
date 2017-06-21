@@ -2,8 +2,8 @@
 
 ##
 # This script downloads and configures the following software in the directory `lib`:
-#   - Elasticsearch 5.2.0
-#   - Kibana 5.2.0
+#   - Elasticsearch 5.4.2
+#   - Kibana 5.4.2
 ##
 
 require 'json'
@@ -14,11 +14,13 @@ require 'zip'
 require 'colorize'
 require 'rubygems/package'
 
+ES_KIB_VERSION = '5.4.2'
+
 INSTALL_DIR = 'lib'
-ES_INSTALL_URI = URI.parse('https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.zip')
-KIBANA_INSTALL_URI_MAC     = URI.parse('https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-darwin-x86_64.tar.gz')
-KIBANA_INSTALL_URI_WINDOWS = URI.parse('https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-windows-x86.zip')
-KIBANA_INSTALL_URI_LINUX   = URI.parse('https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz')
+ES_INSTALL_URI = URI.parse("https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-#{ES_KIB_VERSION}.zip")
+KIBANA_INSTALL_URI_MAC     = URI.parse("https://artifacts.elastic.co/downloads/kibana/kibana-#{ES_KIB_VERSION}-darwin-x86_64.tar.gz")
+KIBANA_INSTALL_URI_WINDOWS = URI.parse("https://artifacts.elastic.co/downloads/kibana/kibana-#{ES_KIB_VERSION}-windows-x86.zip")
+KIBANA_INSTALL_URI_LINUX   = URI.parse("https://artifacts.elastic.co/downloads/kibana/kibana-#{ES_KIB_VERSION}-linux-x86_64.tar.gz")
 
 ES_OPTS = '
 http.cors.enabled: true
