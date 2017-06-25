@@ -1,5 +1,4 @@
-#### 6/21/17
- - Submit Twitter Handles here: [https://docs.google.com/spreadsheets/d/12qazCJs2qmo2anRqnDGg9JmGsek5Xs3U725HxaFzHJo/edit?usp=sharing](https://docs.google.com/spreadsheets/d/12qazCJs2qmo2anRqnDGg9JmGsek5Xs3U725HxaFzHJo/edit?usp=sharing)
+[![Gitter chat](https://badges.gitter.im/bojdell/es-workshop.svg)](https://gitter.im/bojdell/es-workshop)
 
 # es-workshop
 Clone this in your terminal by running `git clone https://github.com/bojdell/es-workshop.git`. This will copy all the code to your computer under the directory `es-workshop`. If you don't have [Git](https://git-scm.com/downloads), you will need to install it.
