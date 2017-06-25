@@ -1,4 +1,4 @@
-[![Gitter chat](https://badges.gitter.im/bojdell/es-workshop.svg)](https://gitter.im/bojdell/es-workshop)
+[![Gitter chat](https://badges.gitter.im/es-workshop.svg)](https://gitter.im/es-workshop)
 
 # es-workshop
 Clone this in your terminal by running `git clone https://github.com/bojdell/es-workshop.git`. This will copy all the code to your computer under the directory `es-workshop`. If you don't have [Git](https://git-scm.com/downloads), you will need to install it.
