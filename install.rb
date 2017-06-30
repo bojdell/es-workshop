@@ -90,7 +90,7 @@ end
 def download(uri, out_file)
   request = Net::HTTP::Get.new(uri)
 
-  Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
+  Net::HTTP.start(uri.host, uri.port, :use_ssl => true, :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
     @in_progress = true
     spinner_thread = spinner('Downloading', out_file)
 
