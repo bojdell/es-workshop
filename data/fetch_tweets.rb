@@ -6,6 +6,11 @@
 # (as specified here: https://dev.twitter.com/oauth/application-only) and placed in your keychain
 # with 'es-workshop-twitter-creds-base64' in the 'Where' field.
 #
+# To add key to keychain
+#  - base64 encode it
+#  - must be of type APPLICATION PASSWORD!!
+#  - allow access to /usr/bin/security
+#
 # This script also uses `jq`: http://brewformulas.org/jq
 ##
 

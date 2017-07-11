@@ -1,4 +1,4 @@
-#### 6/29/17
+#### 7/11/17
  - Submit Twitter Handles here: [https://docs.google.com/spreadsheets/d/12qazCJs2qmo2anRqnDGg9JmGsek5Xs3U725HxaFzHJo/edit?usp=sharing](https://docs.google.com/spreadsheets/d/12qazCJs2qmo2anRqnDGg9JmGsek5Xs3U725HxaFzHJo/edit?usp=sharing)
 
 [![Gitter chat](https://badges.gitter.im/es-workshop.svg)](https://gitter.im/es-workshop/Lobby)
