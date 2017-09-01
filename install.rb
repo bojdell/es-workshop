@@ -14,7 +14,7 @@ require 'zip'
 require 'colorize'
 require 'rubygems/package'
 
-ES_KIB_VERSION = '5.4.2'
+ES_KIB_VERSION = '5.5.2'
 
 INSTALL_DIR = 'lib'
 ES_INSTALL_URI = URI.parse("https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-#{ES_KIB_VERSION}.zip")

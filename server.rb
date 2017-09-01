@@ -1,3 +1,3 @@
 #! /usr/bin/env ruby
 
-system('ruby -run -ehttpd public -p 3000')
+system('ruby -run -ehttpd public -p 4000')
