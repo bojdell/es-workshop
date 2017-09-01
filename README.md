@@ -63,7 +63,7 @@ To index the dataset into Elasticsearch, first make sure Elasticsearch is runnin
 Once this has completed, the data will be available in ES inside the index `tweets`.
 
 ### Run the Web Server
-To run our demo search engine, `cd` into `es-workshop` and run `ruby server.rb`. The server will start listening on port `3000`, and if you navigate to [http://localhost:3000](http://localhost:3000), you can begin interacting with the app.
+To run our demo search engine, `cd` into `es-workshop` and run `ruby server.rb`. The server will start listening on port `4000`, and if you navigate to [http://localhost:4000](http://localhost:4000), you can begin interacting with the app.
 
 ### Warmup
 Edit the file `public/js/basicQuery.js` to also retrieve the field for a user's profile pic (hint: copy the query into the Kibana Dev Tools Console and play around with it. You will need to provide a value for `queryString`. Try removing the field filters to see what data is available on each tweet.)
