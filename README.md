@@ -1,11 +1,9 @@
-#### 8/31/17
- - Submit Twitter Handles here: [https://docs.google.com/spreadsheets/d/12qazCJs2qmo2anRqnDGg9JmGsek5Xs3U725HxaFzHJo/edit?usp=sharing](https://docs.google.com/spreadsheets/d/12qazCJs2qmo2anRqnDGg9JmGsek5Xs3U725HxaFzHJo/edit?usp=sharing)
-
-
 [![Gitter chat](https://badges.gitter.im/es-workshop.svg)](https://gitter.im/es-workshop/Lobby)
 
 # es-workshop
 Clone this in your terminal by running `git clone https://github.com/bojdell/es-workshop.git`. This will copy all the code to your computer under the directory `es-workshop`. If you don't have [Git](https://git-scm.com/downloads), you will need to install it.
+ - Submit Twitter Handles [here](https://docs.google.com/spreadsheets/d/12qazCJs2qmo2anRqnDGg9JmGsek5Xs3U725HxaFzHJo/edit?usp=sharing)
+ - [Workshop Slides](https://docs.google.com/presentation/d/1RDyJ7IlkHBwMcZmoerOkkVaRUZ9babd5XwKeFDF_6Sk/edit)
 
 ## Overview
 The workshop is split into the following components:
